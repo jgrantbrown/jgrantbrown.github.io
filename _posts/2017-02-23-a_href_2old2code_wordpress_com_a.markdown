@@ -5,7 +5,7 @@ date:   2017-02-22 22:16:15 -0500
 ---
 
 [2old2code](https://2old2code.wordpress.com/)
-<a href= https://2old2code.wordpress.com/></a>
+
 Link to 2old2code.wordpress.com
 
 Learning to code after 40!
