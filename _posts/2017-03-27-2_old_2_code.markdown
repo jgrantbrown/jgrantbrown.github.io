@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "2 old 2 code"
+date:   2017-03-27 03:07:25 +0000
+---
+
+# post title here
+
+
+https://wordpress.com/posts/2old2code.wordpress.com
+
+imgres.jpg
+I wanted to reflect a bit after spending the last 6 weeks in a coding bootcamp. Although, I am in the thick of it and in a bit of a haze; slowing down seems necessary.
+
+From the beginning I wanted to make this blogging  journey as transparent and introspective as possible. This is a place for anyone to peek in on my process to learn code. Others whom I am learning with may have more advanced and technical blogs at this point. I am not yet comfortable in my coding skin just yet.
+
+My last month and a half in the the immersive coding bootcamp have been  the hardest most humbling and miserable thing I have ever done. Yet, I wake up every morning excited to put my self through it again.
+
+What is driving me ahead are a few major forces. The first is the reaction I get from my contemporaries when I tell them of my decision to learn coding. I find they are a bit apprehensive and unsure of the new economy and technologies. Some even mention concern for their jobs even their industry, and how fast things are changing. Ultimately, these people who I have great respect for personally, intellectually and professionally, tell me a very similar thing. They admire me for taking the challenge and wished they had the courage to do it.
+
+The second is the incredible people I am sharing this journey with. They are generally 15yrs my junior. They are well-educated, well-spoken, accomplished, kind  and quite diverse in their interests. I keep telling myself if this talented and driven representation of  a younger generation  are in this room, I must be onto something.
+
+I guess my take away is that something is a brewing. Very determined, smart, young people are getting into this way of learning and working. Our workforce is changing  and new ideas and businesses are being created  rapidly. My contemporaries are smart enough to see the change but not sure how to engage it. Interestingly, I keep hearing a re-occurring theme from educators. How do we teach coding  to our youth and even an older generation?
+
+I took the leap and am willing to be a guinea pig to see if we can teach an old dog new tricks. As a father of two school aged children I hope to lead by example. The hope is to re-invent my self and be apart of the creative and exciting world I see be molded today.
+
+I will continue to log my thoughts. And yes I do actually write some code, hopefully I will build up the courage to actually share some of it here and have some insight.
+
+ 
+
+BONUS SECTION:
+
+The toolbox of a programmer is vast. My bookmarks list continues to grow with links to many of the docs.
+
+It is weird to type these out and see how many different facets of programming we have covered in a short time.
+
+Ruby on Rails Docs
+Ruby docs
+Javascript Docs
+Sinatra Docs
+Sqlite Docs
+Jquery Docs
+MySql Docs
+Rake docs
+Git Hub Docs
+Stack Overflow
