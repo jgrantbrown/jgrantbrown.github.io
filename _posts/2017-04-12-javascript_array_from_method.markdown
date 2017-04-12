@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Javascript ARRAY.from method"
-date:   2017-04-12 03:25:53 +0000
+date:   2017-04-11 23:25:54 -0400
 ---
 
 
