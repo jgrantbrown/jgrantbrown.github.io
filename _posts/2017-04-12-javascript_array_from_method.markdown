@@ -1,0 +1,149 @@
+---
+layout: post
+title:  "Javascript ARRAY.from method"
+date:   2017-04-12 03:25:53 +0000
+---
+
+
+Javascript ECMAScript 2015 support in Mozilla for Array.from()
+
+ 
+
+Array.from()
+
+ 
+The Array.from() method creates a new Array instance from an array-like or iterable object.
+
+Example
+
+When passed a string:
+
+Array.from('somestring'); // ["s", "o", "m", "e", "s", "t", "r", "i", "n", "g"]
+
+Array from an Array-like object (arguments)
+
+function x() {
+  return Array.from(arguments);
+}
+
+x(a, b, c);
+
+// [a, b, c]
+Using arrow functions and Array.from
+
+Syntax
+
+Array.from(arrayLike[, mapFn[, thisArg]])
+var a = [1,2,3,4,5]
+
+Array.from(a , element => element + 5)
+[6, 7, 8, 9, 10]
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+
+ 
+
+Javascript continues to develop and give us tools to simplify many tasks.
+
+18.2.1.1 Mapping via Array.from()
+
+Array.from() is also a convenient alternative to using map()generically:
+
+constspans=document.querySelectorAll('span.name');// map(), generically:constnames1=Array.prototype.map.call(spans,s=>s.textContent);// Array.from():constnames2=Array.from(spans,s=>s.textContent);
+In this example, the result of document.querySelectorAll() is again an Array-like object, not an Array, which is why we couldn’t invoke map() on it. Previously, we converted the Array-like object to an Array in order to call forEach(). Here, we skipped that intermediate step via a generic method call and via the two-parameter version of Array.from().
+
+http://exploringjs.com/es6/ch_arrays.html
+
+I ran this code on console
+var elemArr = Array.from(document.getElementsByTagName("UL"));
+
+elemArr
+
+Returned an ARRAY with a length of 2 with the following results from GOOGLE home page
+
+[ul.gb_ka.gb_da, ul.gb_ka.gb_ea]
+As a point of reference the below code is the long hand needed to accomplish Array.from before it was introduced.
+
+Polyfill
+
+Array.from was added to the ECMA-262 standard in the 6th edition (ES2015); as such it may not be present in other implementations of the standard. You can work around this by inserting the following code at the beginning of your scripts, allowing use of Array.from in implementations that don't natively support it.  This algorithm is exactly the one specified in ECMA-262, 6th edition, assuming Object and TypeError have their original values and that callback.call evaluates to the original value of Function.prototype.call. In addition, since true iterables can not be polyfilled, this implementation does not support generic iterables as defined in the 6th edition of ECMA-262.
+
+// Production steps of ECMA-262, Edition 6, 22.1.2.1
+if (!Array.from) {
+  Array.from = (function () {
+    var toStr = Object.prototype.toString;
+    var isCallable = function (fn) {
+      return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
+    };
+    var toInteger = function (value) {
+      var number = Number(value);
+      if (isNaN(number)) { return 0; }
+      if (number === 0 || !isFinite(number)) { return number; }
+      return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
+    };
+    var maxSafeInteger = Math.pow(2, 53) - 1;
+    var toLength = function (value) {
+      var len = toInteger(value);
+      return Math.min(Math.max(len, 0), maxSafeInteger);
+    };
+
+    // The length property of the from method is 1.
+    return function from(arrayLike/*, mapFn, thisArg */) {
+      // 1. Let C be the this value.
+      var C = this;
+
+      // 2. Let items be ToObject(arrayLike).
+      var items = Object(arrayLike);
+
+      // 3. ReturnIfAbrupt(items).
+      if (arrayLike == null) {
+        throw new TypeError('Array.from requires an array-like object - not null or undefined');
+      }
+
+      // 4. If mapfn is undefined, then let mapping be false.
+      var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
+      var T;
+      if (typeof mapFn !== 'undefined') {
+        // 5. else
+        // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
+        if (!isCallable(mapFn)) {
+          throw new TypeError('Array.from: when provided, the second argument must be a function');
+        }
+
+        // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
+        if (arguments.length > 2) {
+          T = arguments[2];
+        }
+      }
+
+      // 10. Let lenValue be Get(items, "length").
+      // 11. Let len be ToLength(lenValue).
+      var len = toLength(items.length);
+
+      // 13. If IsConstructor(C) is true, then
+      // 13. a. Let A be the result of calling the [[Construct]] internal method 
+      // of C with an argument list containing the single item len.
+      // 14. a. Else, Let A be ArrayCreate(len).
+      var A = isCallable(C) ? Object(new C(len)) : new Array(len);
+
+      // 16. Let k be 0.
+      var k = 0;
+      // 17. Repeat, while k < len… (also steps a - h)
+      var kValue;
+      while (k < len) {
+        kValue = items[k];
+        if (mapFn) {
+          A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
+        } else {
+          A[k] = kValue;
+        }
+        k += 1;
+      }
+      // 18. Let putStatus be Put(A, "length", len, true).
+      A.length = len;
+      // 20. Return A.
+      return A;
+    };
+  }());
+}
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
